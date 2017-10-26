@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Magic Box</title>
+
+
+    <link rel="stylesheet" type="text/css" href="http://localhost:63342/magic-board/css/mystyle.css">
+</head>
+<body>
+
+    <div class="main-container">
+
+        <header>
+            <button>START</button>
+        </header>
+
+        <div id="content">
+        </div>
+    </div>
+
+    <script>
+        var contentDiv = document.getElementById('content');
+
+        // Creating a variable, which is creating a new div
+        var board = document.createElement('div');
+        // Adding a class to our new div, and calling it board
+        board.className = 'board';
+        // Creating a child, which is a board element that we just created above,
+        // and putting it inside our contentDiv element
+
+
+        // MY SOLUTION //
+/*
+        for(var y = 0; y < 10; y++) {
+            var row = document.createElement('div');
+            if(y%2===0){
+                row.className = 'row contrast';
+                for(var x=0; x < 10; x++) {
+                    var column = document.createElement('div');
+                    column.className = 'column';
+                    if(x%2===0){
+                        column.className = 'column contrast';
+                    }
+                    row.appendChild(column);
+                }
+            }
+            else {
+                row.className = 'row';
+                for(var x=0; x < 10; x++) {
+                    var column = document.createElement('div');
+                    column.className = 'column contrast';
+                    if(x%2===0){
+                        column.className = 'column';
+                    }
+                    row.appendChild(column);
+                }
+            }
+
+            board.appendChild(row);
+        }
+        */
+
+
+//TEACHERS SOLUTION
+
+        for(var y = 0; y < 10; y++) {
+           addRowToBoard();
+        }
+        // For performance, this is the last thing we do, meaning adding our board to our div.
+        // This is not something we want to do before the end of our script.
+        contentDiv.appendChild(board);
+
+        function addRowToBoard(){
+            // Create row
+            var row = document.createElement('div');
+            row.className = 'row';
+            // Set background color
+            if(y%2) {
+                row.style.backgroundColor = 'peachpuff';
+            }
+            else {
+                row.style.backgroundColor = 'mediumpurple';
+            }
+
+            board.appendChild(row);
+        }
+
+    </script>
+
+</body>
+</html>
