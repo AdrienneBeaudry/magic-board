@@ -1,0 +1,2 @@
+# magic-board
+JS exercise
